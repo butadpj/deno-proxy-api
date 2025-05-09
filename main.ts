@@ -12,12 +12,7 @@ const app = new Hono();
 // --- Middleware ---
 app.use(logger());
 app.use(prettyJSON()); // With options: prettyJSON({ space: 4 })
-app.use(
-  "/api/*",
-  cors({
-    origin: ["*"],
-  }),
-);
+app.use("/api/*", cors());
 
 app.route("/api", api);
 
